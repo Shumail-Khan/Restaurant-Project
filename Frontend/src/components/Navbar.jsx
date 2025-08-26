@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { assets } from '../assets/assets.js';
 
 const Navbar = () => {
   const [activeItem, setActiveItem] = useState('Home');
@@ -17,15 +18,15 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-md font-['Outfit']">
-      <div className="max-w-6xl mx-auto px-4">
+    <nav className=" font-['Outfit']">
+      {/* Changed max-width and added margin auto for proper centering */}
+      <div className="max-w-5xl mx-auto ">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-r from-[#ff9a9e] to-[#fad0c4] flex items-center justify-center text-white font-bold text-xl">
-              G
-            </div>
-            <span className="ml-2 text-xl font-semibold text-gray-800">Gourmet Delight</span>
+            <img src={assets.logo} alt="Logo" className="w-50 h-7 mr-2" />
+          
+            
           </div>
 
           {/* Desktop Navigation */}
