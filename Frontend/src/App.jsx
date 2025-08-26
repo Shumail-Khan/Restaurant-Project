@@ -1,10 +1,19 @@
 import { useState } from 'react'
+import Navbar from './components/Navbar'
+import { Route, Routes } from 'react-router-dom'
+import Home from './pages/Home/Home.jsx'
+import Cart from './pages/Cart/Cart.jsx'
+import PlacedOrder from './pages/PlacedOrder/PlacedOrder.jsx'
 
 function App() {
-
   return (
     <div>
-      <h1 className='text-3xl text-amber-500'>Restaurant Management System</h1>
+      <Navbar/>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/cart' element={<Cart/>}/>
+        <Route path='/order' element={<PlacedOrder/>}/>
+      </Routes>
     </div>
   )
 }
