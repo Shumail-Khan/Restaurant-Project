@@ -80,7 +80,7 @@ const FoodItem = ({ id, name, price, description, image }) => {
       <div className="p-5">
         <div className="flex justify-between items-start mb-3">
           <h3 className="text-lg font-semibold text-gray-800 font-['Outfit'] line-clamp-1">
-            {name} (ID: {id})
+            {name}
           </h3>
           <div className="bg-amber-100 text-amber-800 text-xs font-medium px-2 py-1 rounded-full">
             Popular
