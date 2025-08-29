@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { assets } from '../assets/assets.js';
+import { useNavigate } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({setShowLogin}) => {
   const [activeItem, setActiveItem] = useState('Home');
   const [basketItems, setBasketItems] = useState(3);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate()
 
   const navItems = ['Home', 'Menu', 'Mobile App', 'Contact Us'];
 
@@ -24,7 +26,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <div className="flex items-center">
-            <img src={assets.logo} alt="Logo" className="w-50 h-7 mr-2" />
+            <img onClick={() => navigate('/')} src={assets.logo} alt="Logo" className="w-50 h-7 mr-2" />
           
             
           </div>
@@ -74,7 +76,8 @@ const Navbar = () => {
               <div className="relative">
                 <button
                   className="w-10 h-10 rounded-full flex items-center justify-center text-[#5d6d7e] hover:text-[#e74c3c] transition duration-300 hover:bg-gray-100"
-                  onClick={toggleBasket}
+                  onClick={()=>navigate('/cart')}
+                  
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +103,7 @@ const Navbar = () => {
             </div>
 
             {/* Sign In Button */}
-            <button className="hidden md:block bg-gradient-to-r from-[#2c3e50] to-[#34495e] hover:from-[#34495e] hover:to-[#2c3e50] text-white px-5 py-2.5 rounded-full transition duration-300 font-semibold text-sm shadow-md hover:shadow-lg">
+            <button onClick={() => setShowLogin(true)} className="hidden md:block bg-gradient-to-r from-[#2c3e50] to-[#34495e] hover:from-[#34495e] hover:to-[#2c3e50] text-white px-5 py-2.5 rounded-full transition duration-300 font-semibold text-sm shadow-md hover:shadow-lg">
               Sign In
             </button>
 
@@ -186,13 +189,13 @@ const Navbar = () => {
                       </svg>
                     </button>
                     {basketItems > 0 && (
-                      <div className="absolute -top-1 -right-1 bg-gradient-to-r from-[#e74c3c] to-[#ff9a9e] text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-semibold">
+                      <div  className="absolute -top-1 -right-1 bg-gradient-to-r from-[#e74c3c] to-[#ff9a9e] text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-semibold">
                         {basketItems}
                       </div>
                     )}
                   </div>
                 </div>
-                <button className="bg-gradient-to-r from-[#2c3e50] to-[#34495e] hover:from-[#34495e] hover:to-[#2c3e50] text-white px-4 py-2 rounded-full transition duration-300 font-semibold text-sm shadow-md hover:shadow-lg">
+                <button onClick={()=>setShowLogin(true)} className="bg-gradient-to-r from-[#2c3e50] to-[#34495e] hover:from-[#34495e] hover:to-[#2c3e50] text-white px-4 py-2 rounded-full transition duration-300 font-semibold text-sm shadow-md hover:shadow-lg">
                   Sign In
                 </button>
               </div>
