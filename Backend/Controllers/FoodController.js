@@ -1,7 +1,5 @@
-import foodModel from "../models/FoodModel";
+import foodModel from "../models/FoodModel.js";
 import fs from 'fs'
-
-
 
 export const addFood = async(req,res)=>{
     let image_filename = `${req.file.filename}`
@@ -27,8 +25,6 @@ export const addFood = async(req,res)=>{
         res.status(500).json({ message: "Error adding food item" });
     }
 }
-
-
 
 export const ListFood = async (req, res) => {
     try {
