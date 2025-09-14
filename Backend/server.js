@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import userRoutes from './Routes/User_routes.js';
 import foodRouter from './Router/foodRouter.js';
+import categoryrouter from './Routes/Category_routes.js';
 
 const app = express();
 connectDB();
@@ -15,7 +16,8 @@ app.get('/', (req, res) => {
 });
 app.use('/api/users', userRoutes);
 app.use('/api/food', foodRouter);
-app.use("/images",express.static('uploads'))
+app.use('/api/category', categoryrouter);
+app.use("/images", express.static('uploads'))
 
 app.listen(process.env.PORT, () => {
     
